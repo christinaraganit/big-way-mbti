@@ -1,0 +1,38 @@
+.box {
+    position: relative;
+    padding: 5px;
+    width: calc(100% - 2*5px - 1em);
+    max-width: 350px;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.corners {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.filled {
+    fill: url("#button_red") #5D1239;
+}
+
+.gradientText {
+    background: linear-gradient(to right, #FFE08B 0%, #FFB676 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 26px;
+    gap: 8px;
+}
