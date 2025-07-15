@@ -1,6 +1,6 @@
 "use client";
-import React from 'react';
-import styles from './button.green.module.css';
+import React from "react";
+import styles from "./button.green.module.css";
 import StarGreen from "@/app/star-green";
 
 type Props = {
@@ -12,7 +12,11 @@ type Props = {
 const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
   return (
     <div onClick={onClick} id={id} className={styles.box}>
-      <svg viewBox="0 0 350 72" className={styles.corners} preserveAspectRatio="none">
+      <svg
+        viewBox="0 0 350 72"
+        className={styles.corners}
+        preserveAspectRatio="none"
+      >
         <defs>
           <mask id={`${id}-m`} fill="#fff">
             <rect id={`${id}-b`} width="350" height="72" />
@@ -52,15 +56,43 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
             <stop offset="50%" stopColor="#A0FFC1" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#A0FFC1" stopOpacity="0" />
 
-            <animate attributeName="x1" values="-40;168;284" dur="1.5s" begin={`${id}.mouseenter`} end={`${id}.mouseleave`} />
-            <animate attributeName="y1" values="-9.5;41;36" dur="1.5s" begin={`${id}.mouseenter`} end={`${id}.mouseleave`} />
-            <animate attributeName="x2" values="71.1343;237.267;354.268" dur="1.5s" begin={`${id}.mouseenter`} end={`${id}.mouseleave`} />
-            <animate attributeName="y2" values="88.4364;90.2892;123.525" dur="1.5s" begin={`${id}.mouseenter`} end={`${id}.mouseleave`} />
+            <animate
+              attributeName="x1"
+              values="-40;168;284"
+              dur="1.5s"
+              begin={`${id}.mouseenter`}
+              end={`${id}.mouseleave`}
+            />
+            <animate
+              attributeName="y1"
+              values="-9.5;41;36"
+              dur="1.5s"
+              begin={`${id}.mouseenter`}
+              end={`${id}.mouseleave`}
+            />
+            <animate
+              attributeName="x2"
+              values="71.1343;237.267;354.268"
+              dur="1.5s"
+              begin={`${id}.mouseenter`}
+              end={`${id}.mouseleave`}
+            />
+            <animate
+              attributeName="y2"
+              values="88.4364;90.2892;123.525"
+              dur="1.5s"
+              begin={`${id}.mouseenter`}
+              end={`${id}.mouseleave`}
+            />
           </linearGradient>
         </defs>
 
         <g>
-          <use xlinkHref={`#${id}-b`} mask={`url(#${id}-m)`} fill={`url(#${id}-button_green)`} />
+          <use
+            xlinkHref={`#${id}-b`}
+            mask={`url(#${id}-m)`}
+            fill={`url(#${id}-button_green)`}
+          />
 
           <rect
             x="0"
@@ -83,10 +115,38 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
           </rect>
         </g>
 
-        <line x1="20" y1="0" x2="330" y2="0" stroke={`url(#${id}-strokeGradient)`} strokeWidth="4" />
-        <line x1="350" y1="17.5" x2="350" y2="54.5" stroke={`url(#${id}-strokeGradient)`} strokeWidth="4" />
-        <line x1="330" y1="72" x2="20" y2="72" stroke={`url(#${id}-strokeGradient)`} strokeWidth="4" />
-        <line x1="0" y1="54.5" x2="0" y2="17.5" stroke={`url(#${id}-strokeGradient)`} strokeWidth="4" />
+        <line
+          x1="20"
+          y1="0"
+          x2="330"
+          y2="0"
+          stroke={`url(#${id}-strokeGradient)`}
+          strokeWidth="4"
+        />
+        <line
+          x1="350"
+          y1="17.5"
+          x2="350"
+          y2="54.5"
+          stroke={`url(#${id}-strokeGradient)`}
+          strokeWidth="4"
+        />
+        <line
+          x1="330"
+          y1="72"
+          x2="20"
+          y2="72"
+          stroke={`url(#${id}-strokeGradient)`}
+          strokeWidth="4"
+        />
+        <line
+          x1="0"
+          y1="54.5"
+          x2="0"
+          y2="17.5"
+          stroke={`url(#${id}-strokeGradient)`}
+          strokeWidth="4"
+        />
 
         <ellipse id={`${id}-f`} rx="20" ry="17.5" strokeWidth="2" fill="none" />
         <use xlinkHref={`#${id}-f`} stroke="#FFDA76" x="0" y="0" />
@@ -108,7 +168,7 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
       <div className="relative z-1 flex items-center justify-center flex-1 bg-[#145E4D]" />
       <div className={styles.gradientText}>
         <StarGreen />
-        <span>{label}</span>
+        <span className="text-center leading-tight text-balance">{label}</span>
         <StarGreen />
       </div>
     </div>

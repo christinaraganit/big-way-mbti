@@ -1,85 +1,105 @@
 "use client";
-import React from 'react';
-import {questions} from "@/app/questions";
+import React from "react";
+import { questions } from "@/app/questions";
 import ButtonGreen from "@/app/button-green";
-import {useQuizContext} from "@/app/quiz-context";
-import {useRouter} from "next/navigation";
+import { useQuizContext } from "@/app/quiz-context";
+import { useRouter } from "next/navigation";
 
 const stepImages: Record<number, string> = {
-  0: '/illustrations/illustration-1-2x.png',
-  1: '/illustrations/illustration-2-2x.png',
-  2: '/illustrations/illustration-3-2x.png',
-  3: '/illustrations/illustration-4-2x.png',
-  4: '/illustrations/illustration-5-2x.png',
-  5: '/illustrations/illustration-6-2x.png',
-  6: '/illustrations/illustration-7-2x.png',
-  7: '/illustrations/illustration-8-2x.png',
-  8: '/illustrations/illustration-9-2x.png',
-  9: '/illustrations/illustration-10-2x.png',
-  10: '/illustrations/illustration-11-2x.png',
-  11: '/illustrations/illustration-12-2x.png',
+  0: "/illustrations/illustration-1-2x.png",
+  1: "/illustrations/illustration-2-2x.png",
+  2: "/illustrations/illustration-3-2x.png",
+  3: "/illustrations/illustration-4-2x.png",
+  4: "/illustrations/illustration-5-2x.png",
+  5: "/illustrations/illustration-6-2x.png",
+  6: "/illustrations/illustration-7-2x.png",
+  7: "/illustrations/illustration-8-2x.png",
+  8: "/illustrations/illustration-9-2x.png",
+  9: "/illustrations/illustration-10-2x.png",
+  10: "/illustrations/illustration-11-2x.png",
+  11: "/illustrations/illustration-12-2x.png",
 };
 
 export default function Quiz() {
   const router = useRouter();
   const [step, setStep] = React.useState(0);
-  const {setAnswers} = useQuizContext();
+  const { setAnswers } = useQuizContext();
 
   return (
-    <div id="quiz" className={"flex flex-col items-center justify-between w-screen h-screen max-w-screen max-h-screen overflow-x-hidden overflow-y-hidden pt-4 p-8 md:p-8 gap-4 bg-white"}>
-      <img src="/golden-border.svg" className="absolute top-4 left-4 md:top-8 md:left-8"></img>
-      <img src="/golden-border.svg" className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8"></img>
-      <img src="/golden-border.svg" className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block"></img>
-      <img src="/golden-border.svg" className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block"></img>
+    <div
+      id="quiz"
+      className={
+        "flex flex-col items-center justify-between w-dvw h-dvh max-w-dvw max-h-dvh overflow-x-hidden overflow-y-hidden pt-4 p-8 md:p-8 gap-4 bg-white"
+      }
+    >
+      <img
+        src="/golden-border.svg"
+        className="absolute top-4 left-4 md:top-8 md:left-8"
+      ></img>
+      <img
+        src="/golden-border.svg"
+        className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8"
+      ></img>
+      <img
+        src="/golden-border.svg"
+        className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block"
+      ></img>
+      <img
+        src="/golden-border.svg"
+        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block"
+      ></img>
 
       <div className="w-full flex items-center flex-col">
-      <img src="/red-flower.svg" className="w-5 mb-2"/>
-      <span className="font-serif uppercase text-sm md:text-base font-medium text-[#6B1C3D] block mb-6">Question {step+1}/12</span>
+        <img src="/red-flower.svg" className="w-5 mb-2" />
+        <span className="font-serif uppercase text-sm md:text-base font-medium text-[#6B1C3D] block mb-6">
+          Question {step + 1}/12
+        </span>
 
-        <h1 className="font-mona-sans text-xl md:text-2xl text-[#601616] font-medium mb-10 text-balance max-w-xl text-center">
+        <h1 className="font-mona-sans text-xl md:text-2xl text-[#601616] font-medium mb-10 text-balance max-w-[350px] text-center">
           {questions[step]?.question}
         </h1>
       </div>
 
-
-
-      <img src={stepImages[step]} className="max-w-5xl w-full max-h-[400px] object-contain mb-10"/>
-
-      <div className="w-full flex items-center flex-col gap-5 mb-12">
-      <ButtonGreen
-        id={`A${step}`}
-        onClick={() => {
-          if (step === questions.length - 1) {
-            router.push('/results');
-            return;
-          }
-          const currentAnswer = questions[step]?.answerA.letter;
-          if (currentAnswer) {
-            setAnswers(prev => {
-              const newCount = (prev.get(currentAnswer) || 0) + 1;
-              return new Map(prev).set(currentAnswer, newCount);
-            });
-          }
-          setStep(prev => prev + 1);
-        }}
-        label={`${questions[step]?.answerA.text}`}
+      <img
+        src={stepImages[step]}
+        className="max-w-xl md:w-full max-h-[480px] object-contain absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       />
+
+      <div className="w-full flex items-center flex-col gap-5 mb-8">
+        <ButtonGreen
+          id={`A${step}`}
+          onClick={() => {
+            if (step === questions.length - 1) {
+              router.push("/results");
+              return;
+            }
+            const currentAnswer = questions[step]?.answerA.letter;
+            if (currentAnswer) {
+              setAnswers((prev) => {
+                const newCount = (prev.get(currentAnswer) || 0) + 1;
+                return new Map(prev).set(currentAnswer, newCount);
+              });
+            }
+            setStep((prev) => prev + 1);
+          }}
+          label={`${questions[step]?.answerA.text}`}
+        />
 
         <ButtonGreen
           id={`B${step}`}
           onClick={() => {
             if (step === questions.length - 1) {
-              router.push('/results');
+              router.push("/results");
               return;
             }
             const currentAnswer = questions[step]?.answerB.letter;
             if (currentAnswer) {
-              setAnswers(prev => {
+              setAnswers((prev) => {
                 const newCount = (prev.get(currentAnswer) || 0) + 1;
                 return new Map(prev).set(currentAnswer, newCount);
               });
             }
-            setStep(prev => prev + 1);
+            setStep((prev) => prev + 1);
           }}
           label={`${questions[step]?.answerB.text}`}
         />

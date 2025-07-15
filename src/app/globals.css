@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
-
-#home {
-    background: linear-gradient(180deg, #901012 4.87%, #66153B 84.38%);
+#home,
+#results {
+  background: linear-gradient(180deg, #901012 4.87%, #66153b 84.38%);
 }
 
 #quiz {
-    background: linear-gradient(180deg, #FFFEF1 41.05%, #FFEFE8 84.38%);
+  background: linear-gradient(180deg, #fffef1 41.05%, #ffefe8 84.38%);
 }
 
 .font-mona-sans {
-    font-family: 'Mona Sans', sans-serif;
+  font-family: "Mona Sans", sans-serif;
 }
