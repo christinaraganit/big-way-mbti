@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {QuizProvider} from "@/app/quiz-context";
+import { QuizProvider } from "@/app/quiz-context";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Big Way Quiz",
@@ -15,9 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <QuizProvider>
-        {children}
-      </QuizProvider>
+        <QuizProvider>{children}</QuizProvider>
+        <Analytics />
       </body>
     </html>
   );
