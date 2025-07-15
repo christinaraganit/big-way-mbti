@@ -51,7 +51,7 @@ export default function Quiz() {
 
       <div className="w-full flex items-center flex-col">
         <img src="/red-flower.svg" className="w-5 mb-2" />
-        <span className="font-serif uppercase text-sm md:text-base font-medium text-[#6B1C3D] block mb-6">
+        <span className="font-source-serif-pro uppercase text-sm md:text-base font-medium text-[#6B1C3D] block mb-6">
           Question {step + 1}/12
         </span>
 

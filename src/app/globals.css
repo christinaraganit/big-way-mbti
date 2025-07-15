@@ -1,6 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/FuturaBT-Book.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/FuturaBT-ExtraBlack.ttf") format("truetype");
+  font-weight: 800;
+  font-style: extrabold;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url("/fonts/SourceSerifPro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 #home,
 #results {
   background: linear-gradient(180deg, #901012 4.87%, #66153b 84.38%);
@@ -10,6 +31,14 @@
   background: linear-gradient(180deg, #fffef1 41.05%, #ffefe8 84.38%);
 }
 
+.font-source-serif-pro {
+  font-family: "Source Serif Pro", serif;
+}
+
 .font-mona-sans {
   font-family: "Mona Sans", sans-serif;
+}
+
+.font-futura {
+  font-family: "Futura", sans-serif;
 }

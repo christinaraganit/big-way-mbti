@@ -296,30 +296,36 @@ export default function Results() {
       />
 
       <div className="px-8 text-center w-full max-w-2xl flex flex-col items-center justify-center">
-        <h1 className="font-serif font-medium uppercase text-[#FFC950] text-2xl mb-2">
+        <h1 className="font-source-serif-pro font-medium uppercase text-[#FFC950] text-2xl mb-2">
           {mbti}
         </h1>
-        <h2 className="font-mona-sans font-extrabold text-white text-5xl uppercase text-balance">
+        <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance">
           {brothByMBTI[mbti].broth}
         </h2>
       </div>
 
-      <img src={brothByMBTI[mbti].img} className="-mt-12 max-w-xl"></img>
+      <img src={brothByMBTI[mbti].img} className="-mt-8 max-w-xl"></img>
 
       {/* <h1>Your MBTI Result</h1>
       <p>Thank you for completing the quiz!</p>
       <p>You are: {mbti}</p> */}
 
       <div className="max-w-[350px] w-full -mt-16 mb-8">
-        <h2 className="font-serif text-[#F19C24] mb-2">Description</h2>
-        <p className="text-lg text-white">{brothByMBTI[mbti].description}</p>
+        <h2 className="font-source-serif-pro text-[#F19C24] mb-2">
+          Description
+        </h2>
+        <p className="font-futura text-lg text-white">
+          {brothByMBTI[mbti].description}
+        </p>
       </div>
 
       <div className="max-w-[350px] w-full mb-12">
-        <h2 className="font-serif text-[#F19C24] mb-2">Personality Traits</h2>
+        <h2 className="font-source-serif-pro text-[#F19C24] mb-2">
+          Personality Traits
+        </h2>
         <div className="grid grid-cols-3 gap-4">
           {brothByMBTI[mbti].traits.map((trait, idx) => (
-            <span key={idx} className="block text-lg text-white">
+            <span key={idx} className="block font-futura text-lg text-white">
               {trait}
             </span>
           ))}

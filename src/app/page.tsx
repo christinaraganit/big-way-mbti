@@ -35,10 +35,10 @@ export default function Home() {
       />
 
       <div className="text-center w-full max-w-2xl flex flex-col items-center justify-center">
-        <h1 className="font-serif font-medium uppercase text-[#FFC950] text-2xl mb-2">
+        <h1 className="font-source-serif-pro font-medium uppercase text-[#FFC950] text-2xl mb-2">
           Big Way Hot Pot
         </h1>
-        <h2 className="font-mona-sans font-extrabold text-white text-5xl uppercase text-balance mb-10">
+        <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance mb-10">
           Discover Your Soup Personality
         </h2>
 
