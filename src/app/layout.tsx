@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {QuizProvider} from "@/app/quiz-context";
 
 export const metadata: Metadata = {
   title: "Big Way Quiz",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <QuizProvider>
         {children}
+      </QuizProvider>
       </body>
     </html>
   );

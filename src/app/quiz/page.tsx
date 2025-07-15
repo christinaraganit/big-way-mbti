@@ -1,7 +1,9 @@
 "use client";
 import React from 'react';
-import {MBTI, questions} from "@/app/questions";
+import {questions} from "@/app/questions";
 import ButtonGreen from "@/app/button-green";
+import {useQuizContext} from "@/app/quiz-context";
+import {useRouter} from "next/navigation";
 
 const stepImages: Record<number, string> = {
   0: '/illustrations/illustration-1-2x.png',
@@ -19,25 +21,9 @@ const stepImages: Record<number, string> = {
 };
 
 export default function Quiz() {
+  const router = useRouter();
   const [step, setStep] = React.useState(0);
-  const [answers, setAnswers] = React.useState<Map<MBTI, number>>(new Map());
-
-  if (step >= questions.length) {
-    return (
-      <div className={"flex flex-col items-center justify-center min-h-screen p-4"}>
-        <h1>Your MBTI Result</h1>
-        <p>Thank you for completing the quiz!</p>
-        <p>Your answers:</p>
-        <ul>
-          {Array.from(answers.entries()).map(([letter, count]) => (
-            <li key={letter}>
-              {letter}: {Number(count/questions.length).toLocaleString(undefined, {style: 'percent', minimumFractionDigits: 2})}
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+  const {setAnswers} = useQuizContext();
 
   return (
     <div id="quiz" className={"flex flex-col items-center justify-between w-screen h-screen max-w-screen max-h-screen overflow-x-hidden overflow-y-hidden pt-4 p-8 md:p-8 gap-4 bg-white"}>
@@ -57,12 +43,16 @@ export default function Quiz() {
 
 
 
-      <img src={stepImages[step]} className="max-w-5xl w-full h-auto mb-10"/>
+      <img src={stepImages[step]} className="max-w-5xl w-full max-h-[400px] object-contain mb-10"/>
 
       <div className="w-full flex items-center flex-col gap-5 mb-12">
       <ButtonGreen
         id={`A${step}`}
         onClick={() => {
+          if (step === questions.length - 1) {
+            router.push('/results');
+            return;
+          }
           const currentAnswer = questions[step]?.answerA.letter;
           if (currentAnswer) {
             setAnswers(prev => {
@@ -78,6 +68,10 @@ export default function Quiz() {
         <ButtonGreen
           id={`B${step}`}
           onClick={() => {
+            if (step === questions.length - 1) {
+              router.push('/results');
+              return;
+            }
             const currentAnswer = questions[step]?.answerB.letter;
             if (currentAnswer) {
               setAnswers(prev => {
@@ -89,11 +83,7 @@ export default function Quiz() {
           }}
           label={`${questions[step]?.answerB.text}`}
         />
-
       </div>
-
-
-
     </div>
   );
 }

@@ -155,3 +155,51 @@ export const questions: Question[] = [
     }
   },
 ];
+
+export const calculateMBTI = (answers: Map<MBTI, number>): string => {
+  const mbti: MBTI[] = [];
+  const getCount = (letter: MBTI): number => answers.get(letter) || 0;
+  mbti.push(getCount(MBTI.I) > getCount(MBTI.E) ? MBTI.I : MBTI.E);
+  mbti.push(getCount(MBTI.N) > getCount(MBTI.S) ? MBTI.N : MBTI.S);
+  mbti.push(getCount(MBTI.T) > getCount(MBTI.F) ? MBTI.T : MBTI.F);
+  mbti.push(getCount(MBTI.J) > getCount(MBTI.P) ? MBTI.J : MBTI.P);
+
+  return mbti.join('');
+}
+
+type MBTIPair = [MBTI, MBTI];
+
+const mbtiPairs: MBTIPair[] = [
+  [MBTI.I, MBTI.E],
+  [MBTI.N, MBTI.S],
+  [MBTI.T, MBTI.F],
+  [MBTI.J, MBTI.P],
+];
+
+type MBTIPercentage = {
+  pair: MBTIPair;
+  percentages: {
+    [key in MBTI]?: number;
+  };
+};
+
+export function calculateMBTIPercentages(
+  answers: Map<MBTI, number>
+): MBTIPercentage[] {
+  return mbtiPairs.map(([a, b]) => {
+    const countA = answers.get(a) ?? 0;
+    const countB = answers.get(b) ?? 0;
+    const total = countA + countB;
+
+    const percentA = total === 0 ? 0 : Math.round((countA / total) * 100);
+    const percentB = total === 0 ? 0 : 100 - percentA;
+
+    return {
+      pair: [a, b],
+      percentages: {
+        [a]: percentA,
+        [b]: percentB,
+      },
+    };
+  });
+}
