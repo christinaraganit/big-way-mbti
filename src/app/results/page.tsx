@@ -334,6 +334,7 @@ export default function Results() {
 
       <div className="w-full flex items-center justify-center mb-12">
         <ButtonRed
+          id="take_quiz_again"
           label="Take the Quiz Again"
           onClick={() => router.push("/quiz")}
         ></ButtonRed>
