@@ -43,9 +43,10 @@ export default function Home() {
         </h2>
 
         <ButtonRed
+          id="start_quiz"
           label="Start the Quiz"
           onClick={() => router.push("/quiz")}
-        ></ButtonRed>
+        />
       </div>
 
       <img
