@@ -29,7 +29,7 @@ export default function Quiz() {
     <div
       id="quiz"
       className={
-        "flex flex-col items-center justify-between w-dvw h-dvh max-w-dvw max-h-dvh overflow-x-hidden overflow-y-hidden pt-4 p-8 md:p-8 gap-4 bg-white"
+        "flex flex-col items-center justify-between w-dvw h-dvh max-w-dvw max-h-dvh overflow-hidden pt-4 p-8 md:p-8 gap-4 bg-white"
       }
     >
       <img
@@ -55,17 +55,19 @@ export default function Quiz() {
           Question {step + 1}/12
         </span>
 
-        <h1 className="font-mona-sans text-xl md:text-2xl text-[#601616] font-medium mb-10 text-balance max-w-[350px] text-center">
+        <h1 className="font-mona-sans text-xl md:text-2xl text-[#601616] font-medium mb-10 text-balance max-w-xl text-center">
           {questions[step]?.question}
         </h1>
       </div>
 
-      <img
-        src={stepImages[step]}
-        className="max-w-xl md:w-full max-h-[480px] object-contain absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      />
+      <div className="flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden">
+        <img
+          src={stepImages[step]}
+          className="max-w-xl md:w-full max-h-[480px] object-contain"
+        />
+      </div>
 
-      <div className="w-full flex items-center flex-col gap-5 mb-8">
+      <div className="w-full flex items-center flex-col gap-5 mb-4">
         <ButtonGreen
           id={`A${step}`}
           onClick={() => {
