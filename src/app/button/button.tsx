@@ -1,20 +1,27 @@
 "use client";
 import React from "react";
-import styles from "./button.green.module.css";
-import StarGreen from "@/app/star-green";
 
 type Props = {
   id: string;
   label: string;
   onClick: () => void;
+  backgroundGradient: {
+    start: string;
+    end: string;
+  };
+  strokeGradient: string[];
+  shimmerGradient: string;
+  innerRectangleColor: string;
+  textColor: string | {start: string; end: string};
+  star: React.ReactNode;
 };
 
-const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
+const Button: React.FC<Props> = ({ id, label, onClick, backgroundGradient, shimmerGradient, innerRectangleColor, star, strokeGradient, textColor }) => {
   return (
-    <div onClick={onClick} id={id} className={styles.box}>
+    <div onClick={onClick} id={id} className="relative p-[5px] w-[calc(100%-2*5px-1em)] max-w-[350px] min-h-[72px] flex flex-col cursor-pointer">
       <svg
         viewBox="0 0 350 72"
-        className={styles.corners}
+        className="absolute top-0 left-0 w-full h-full z-[2]"
         preserveAspectRatio="none"
       >
         <defs>
@@ -26,9 +33,9 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
             <use xlinkHref={`#${id}-c`} x="350" y="72" />
           </mask>
 
-          <linearGradient id={`${id}-button_green`}>
-            <stop offset="10%" stopColor="#569061" />
-            <stop offset="90%" stopColor="#155F4E" />
+          <linearGradient id={`${id}-button`}>
+            <stop offset="10%" stopColor={backgroundGradient.start} />
+            <stop offset="90%" stopColor={backgroundGradient.end} />
           </linearGradient>
 
           <linearGradient
@@ -39,9 +46,12 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
             y2="0"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stopColor="#FFDA76" />
-            <stop offset="50%" stopColor="#D69C5F" />
-            <stop offset="100%" stopColor="#B87329" />
+            {strokeGradient.map((color, index) => {
+              const offset = (index / (strokeGradient.length - 1)) * 100;
+              return (
+                <stop key={index} offset={`${offset}%`} stopColor={color} />
+              );
+            })}
           </linearGradient>
 
           <linearGradient
@@ -52,9 +62,9 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
             y2="88.4364"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stopColor="#A0FFC1" stopOpacity="0" />
-            <stop offset="50%" stopColor="#A0FFC1" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#A0FFC1" stopOpacity="0" />
+            <stop offset="0%" stopColor={shimmerGradient} stopOpacity="0" />
+            <stop offset="50%" stopColor={shimmerGradient} stopOpacity="0.4" />
+            <stop offset="100%" stopColor={shimmerGradient} stopOpacity="0" />
 
             <animate
               attributeName="x1"
@@ -91,7 +101,7 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
           <use
             xlinkHref={`#${id}-b`}
             mask={`url(#${id}-m)`}
-            fill={`url(#${id}-button_green)`}
+            fill={`url(#${id}-button)`}
           />
 
           <rect
@@ -149,10 +159,10 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
         />
 
         <ellipse id={`${id}-f`} rx="20" ry="17.5" strokeWidth="2" fill="none" />
-        <use xlinkHref={`#${id}-f`} stroke="#FFDA76" x="0" y="0" />
-        <use xlinkHref={`#${id}-f`} stroke="#B87329" x="350" y="0" />
-        <use xlinkHref={`#${id}-f`} stroke="#FFDA76" x="0" y="72" />
-        <use xlinkHref={`#${id}-f`} stroke="#B87329" x="350" y="72" />
+        <use xlinkHref={`#${id}-f`} stroke={strokeGradient[0]} x="0" y="0" />
+        <use xlinkHref={`#${id}-f`} stroke={strokeGradient[strokeGradient.length-1]} x="350" y="0" />
+        <use xlinkHref={`#${id}-f`} stroke={strokeGradient[0]} x="0" y="72" />
+        <use xlinkHref={`#${id}-f`} stroke={strokeGradient[strokeGradient.length-1]} x="350" y="72" />
 
         <rect
           x="6"
@@ -165,14 +175,25 @@ const ButtonGreen: React.FC<Props> = ({ id, label, onClick }) => {
         />
       </svg>
 
-      <div className="relative z-1 flex items-center justify-center flex-1 bg-[#145E4D]" />
-      <div className={styles.gradientText}>
-        <StarGreen />
+      <div className={`relative z-1 flex items-center justify-center flex-1 bg-[${innerRectangleColor}]`} />
+      <div
+        style={{
+          background: typeof textColor === 'string' ?
+            textColor :
+            `linear-gradient(to right, ${textColor.start} 0%, ${textColor.end}) 100%`,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+        className={
+        `bg-clip-text text-transparent absolute inset-0 z-[3] flex items-center justify-between px-[26px] py-[23px] gap-[8px] select-none`
+        }
+      >
+        {star}
         <span className="text-center leading-tight text-balance">{label}</span>
-        <StarGreen />
+        {star}
       </div>
     </div>
   );
 };
 
-export default ButtonGreen;
+export default Button;

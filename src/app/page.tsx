@@ -1,6 +1,6 @@
 "use client";
 
-import ButtonRed from "@/app/button-red";
+import ButtonRed from "@/app/button/button-red";
 import { useRouter } from "next/navigation";
 
 export default function Home() {

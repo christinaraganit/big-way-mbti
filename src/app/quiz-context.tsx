@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useState, FC, ReactNode } from "react";
-import { MBTI } from "@/app/questions";
+import { MBTI } from "@/app/mbti";
 
 type QuizContextType = {
   answers: Map<MBTI, number>;

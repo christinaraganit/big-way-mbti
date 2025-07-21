@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { questions } from "@/app/questions";
-import ButtonGreen from "@/app/button-green";
+import { mbti } from "@/app/mbti";
+import ButtonGreen from "@/app/button/button-green";
 import { useQuizContext } from "@/app/quiz-context";
 import { useRouter } from "next/navigation";
 
@@ -56,7 +56,7 @@ export default function Quiz() {
         </span>
 
         <h1 className="font-mona-sans text-xl md:text-2xl text-[#601616] font-medium mb-10 text-balance max-w-xl text-center">
-          {questions[step]?.question}
+          {mbti[step]?.question}
         </h1>
       </div>
 
@@ -71,11 +71,11 @@ export default function Quiz() {
         <ButtonGreen
           id={`A${step}`}
           onClick={() => {
-            if (step === questions.length - 1) {
+            if (step === mbti.length - 1) {
               router.push("/results");
               return;
             }
-            const currentAnswer = questions[step]?.answerA.letter;
+            const currentAnswer = mbti[step]?.answerA.letter;
             if (currentAnswer) {
               setAnswers((prev) => {
                 const newCount = (prev.get(currentAnswer) || 0) + 1;
@@ -84,17 +84,17 @@ export default function Quiz() {
             }
             setStep((prev) => prev + 1);
           }}
-          label={`${questions[step]?.answerA.text}`}
+          label={`${mbti[step]?.answerA.text}`}
         />
 
         <ButtonGreen
           id={`B${step}`}
           onClick={() => {
-            if (step === questions.length - 1) {
+            if (step === mbti.length - 1) {
               router.push("/results");
               return;
             }
-            const currentAnswer = questions[step]?.answerB.letter;
+            const currentAnswer = mbti[step]?.answerB.letter;
             if (currentAnswer) {
               setAnswers((prev) => {
                 const newCount = (prev.get(currentAnswer) || 0) + 1;
@@ -103,7 +103,7 @@ export default function Quiz() {
             }
             setStep((prev) => prev + 1);
           }}
-          label={`${questions[step]?.answerB.text}`}
+          label={`${mbti[step]?.answerB.text}`}
         />
       </div>
     </div>
