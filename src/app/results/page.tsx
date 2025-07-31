@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {brothByMBTI, calculateMBTI} from "@/app/mbti";
+import { brothByMBTI, calculateMBTI } from "@/app/mbti";
 import { useQuizContext } from "@/app/quiz-context";
 import ButtonRed from "../button/button-red";
 import { useRouter } from "next/navigation";
@@ -78,7 +78,11 @@ export default function Results() {
       </div>
 
       <div className="w-full flex flex-col gap-[20px] items-center justify-center mb-12">
-        <ButtonGold id={"share_quiz"} label={"Share My Result"} onClick={() => {}} />
+        <ButtonGold
+          id={"share_quiz"}
+          label={"Share My Result"}
+          onClick={() => {}}
+        />
         <ButtonRed
           id="take_quiz_again"
           label="Take the Quiz Again"

@@ -2,6 +2,7 @@
 
 import ButtonRed from "@/app/button/button-red";
 import { useRouter } from "next/navigation";
+import ButtonGold from "./button/button-gold";
 
 export default function Home() {
   const router = useRouter();
@@ -39,19 +40,27 @@ export default function Home() {
           Big Way Hot Pot
         </h1>
         <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance mb-10">
-          Discover Your Soup Personality
+          Discover Your Soup MBTI
         </h2>
 
+        <div className="w-full flex items-center justify-center mb-6">
+          <ButtonGold
+            id="start_quiz"
+            label="Take the Quiz"
+            onClick={() => router.push("/quiz")}
+          />
+        </div>
+
         <ButtonRed
-          id="start_quiz"
-          label="Start the Quiz"
-          onClick={() => router.push("/quiz")}
+          id="view_soup_bases"
+          label="View All Soup Bases"
+          onClick={() => router.push("/all-soups")}
         />
       </div>
 
       <img
         src="/hero-image-2x.png"
-        className="max-w-3xl md:max-w-7xl md:mt-10"
+        className="max-w-4xl md:max-w-6xl mt-10 md:mt-0"
       />
     </main>
   );

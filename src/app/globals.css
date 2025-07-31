@@ -23,12 +23,17 @@
 }
 
 #home,
-#results {
+#results,
+#all-soups {
   background: linear-gradient(180deg, #901012 4.87%, #66153b 84.38%);
 }
 
 #quiz {
   background: linear-gradient(180deg, #fffef1 41.05%, #ffefe8 84.38%);
+}
+
+.separator {
+  background: linear-gradient(90deg, #f0c46d 0%, #bb792f 100%);
 }
 
 .font-source-serif-pro {
