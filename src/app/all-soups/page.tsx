@@ -32,12 +32,22 @@ export default function AllSoups() {
       />
 
       <div className="px-4 md:px-8 text-center w-full max-w-3xl flex flex-col items-center min-h-screen">
-        <h1 className="font-source-serif-pro font-medium uppercase text-[#FFC950] text-2xl mb-2">
-          Explore
-        </h1>
-        <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance mb-12">
-          All Soup Bases
-        </h2>
+        <div className="w-full">
+          <a href="/">
+            <div className="w-10 h-10 absolute">
+              <img
+                className="w-6 h-6 mx-auto my-auto"
+                src="back-arrow.svg"
+              ></img>
+            </div>
+          </a>
+          <h1 className="font-source-serif-pro font-medium uppercase text-[#FFC950] text-2xl mb-2">
+            Explore
+          </h1>
+          <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance mb-12">
+            All Soup <br></br>Bases
+          </h2>
+        </div>
 
         {Object.entries(brothByMBTI).map(([mbti, info], index) => (
           <div key={mbti} className="w-full flex flex-col">
