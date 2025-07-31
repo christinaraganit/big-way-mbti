@@ -10,25 +10,25 @@ export default function AllSoups() {
     >
       <img
         src="/border.svg"
-        className="fixed top-4 left-4 md:top-8 md:left-8"
+        className="fixed top-4 left-4 md:top-8 md:left-8 pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-x-[-1] fixed top-4 right-4 md:top-8 md:right-8"
+        className="scale-x-[-1] fixed top-4 right-4 md:top-8 md:right-8 pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-y-[-1] bottom-8 left-8 fixed hidden md:block"
+        className="scale-y-[-1] bottom-8 left-8 fixed hidden md:block pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 fixed hidden md:block"
+        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 fixed hidden md:block pointer-events-none"
       ></img>
 
       <img
         src="/big-way-logo.png"
         alt="Big Way Hot Pot Logo"
-        className="w-10 mb-8"
+        className="w-10 mb-8 pointer-events-none"
       />
 
       <div className="px-4 md:px-8 text-center w-full max-w-3xl flex flex-col items-center min-h-screen">
@@ -45,7 +45,7 @@ export default function AllSoups() {
               <img
                 src={info.img}
                 alt={`${mbti} broth image`}
-                className="w-full sm:w-1/2 h-auto sm:-ml-6"
+                className="w-full sm:w-1/2 h-auto sm:-ml-6 pointer-events-none"
               />
 
               <div className="-mt-8 w-full sm:w-1/2 flex flex-col sm:mt-12">

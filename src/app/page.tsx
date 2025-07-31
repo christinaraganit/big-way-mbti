@@ -14,25 +14,25 @@ export default function Home() {
     >
       <img
         src="/border.svg"
-        className="absolute top-4 left-4 md:top-8 md:left-8"
+        className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8"
+        className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8 pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block"
+        className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block pointer-events-none"
       ></img>
       <img
         src="/border.svg"
-        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block"
+        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block pointer-events-none"
       ></img>
 
       <img
         src="/big-way-logo.png"
         alt="Big Way Hot Pot Logo"
-        className="w-10 mb-8"
+        className="w-10 mb-8 pointer-events-none"
       />
 
       <div className="text-center w-full max-w-2xl flex flex-col items-center justify-center">
@@ -60,7 +60,7 @@ export default function Home() {
 
       <img
         src="/hero-image-2x.png"
-        className="max-w-4xl md:max-w-6xl mt-10 md:mt-0"
+        className="max-w-4xl md:max-w-6xl mt-10 md:mt-0 pointer-events-none"
       />
     </main>
   );

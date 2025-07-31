@@ -34,23 +34,23 @@ export default function Quiz() {
     >
       <img
         src="/golden-border.svg"
-        className="absolute top-4 left-4 md:top-8 md:left-8"
+        className="absolute top-4 left-4 md:top-8 md:left-8 pointer-events-none"
       ></img>
       <img
         src="/golden-border.svg"
-        className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8"
+        className="scale-x-[-1] absolute top-4 right-4 md:top-8 md:right-8 pointer-events-none"
       ></img>
       <img
         src="/golden-border.svg"
-        className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block"
+        className="scale-y-[-1] bottom-8 left-8 absolute hidden md:block pointer-events-none"
       ></img>
       <img
         src="/golden-border.svg"
-        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block"
+        className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 absolute hidden md:block pointer-events-none"
       ></img>
 
       <div className="w-full flex items-center flex-col">
-        <img src="/red-flower.svg" className="w-5 mb-2" />
+        <img src="/red-flower.svg" className="w-5 mb-2 pointer-events-none" />
         <span className="font-source-serif-pro uppercase text-sm md:text-base font-medium text-[#6B1C3D] block mb-6">
           Question {step + 1}/12
         </span>
@@ -63,7 +63,7 @@ export default function Quiz() {
       <div className="flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full overflow-hidden">
         <img
           src={stepImages[step]}
-          className="max-w-xl md:w-full max-h-[480px] object-contain"
+          className="max-w-xl md:w-full max-h-[480px] object-contain pointer-events-none"
         />
       </div>
 
