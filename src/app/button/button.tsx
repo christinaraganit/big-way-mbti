@@ -175,7 +175,10 @@ const Button: React.FC<Props> = ({ id, label, onClick, backgroundGradient, shimm
         />
       </svg>
 
-      <div className={`relative z-1 flex items-center justify-center flex-1 bg-[${innerRectangleColor}]`} />
+      <div
+        className={`relative z-1 flex items-center justify-center flex-1`}
+        style={{backgroundColor: innerRectangleColor}}
+      />
       <div
         style={{
           background: typeof textColor === 'string' ?
