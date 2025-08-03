@@ -37,14 +37,6 @@
   background: linear-gradient(180deg, #fffef1 41.05%, #ffefe8 84.38%);
 }
 
-#resultsContainer {
-  background-image: url('/swirl.svg');
-  background-repeat: round;
-  background-size: 50px 50px; /* adjust based on swirl size */
-  opacity: 0.3; /* optional for blending */
-}
-
-
 .separator {
   background: linear-gradient(90deg, #f0c46d 0%, #bb792f 100%);
 }
