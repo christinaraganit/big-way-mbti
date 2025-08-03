@@ -24,13 +24,8 @@
 
 #home,
 #results,
-#all-soups,
-#resultsImage {
+#all-soups {
   background: linear-gradient(180deg, #901012 4.87%, #66153b 84.38%);
-}
-
-#footer {
-  background: linear-gradient(91deg, #AD264A 0.85%, #911012 67.78%);
 }
 
 #quiz {
