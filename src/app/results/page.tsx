@@ -1,26 +1,26 @@
 "use client";
 import React from "react";
-import { brothByMBTI, calculateMBTI } from "@/app/mbti";
-import { useQuizContext } from "@/app/quiz-context";
 import ButtonRed from "../button/button-red";
 import { useRouter } from "next/navigation";
-import ButtonGold from "@/app/button/button-gold";
+import {useQuizContext} from "@/app/quiz-context";
+import {brothByMBTI, calculateMBTI} from "@/app/mbti";
 
 export default function Results() {
   const router = useRouter();
+
   const { answers } = useQuizContext();
 
-  const mbti = React.useMemo(() => {
-    return calculateMBTI(answers);
-  }, [answers]);
+  const mbti = React.useMemo(() => calculateMBTI(answers), [answers]);
+  const broth = brothByMBTI[mbti];
 
   return (
     <main
       id="results"
       className={
-        "flex flex-col items-center justify-center min-h-dvh min-w-dvw p-4 md:p-8 overflow-x-hidden"
+        "flex flex-col md:flex-row-reverse items-center justify-center md:max-h-dvh max-w-dvw md:h-screen p-4 md:p-8 md:gap-12 lg:gap-20 overflow-x-hidden"
       }
     >
+
       <img
         src="/border.svg"
         className="fixed top-4 left-4 md:top-8 md:left-8"
@@ -38,57 +38,59 @@ export default function Results() {
         className="scale-x-[-1] scale-y-[-1] bottom-8 right-8 fixed hidden md:block"
       ></img>
 
-      <img
+      <div className="md:w-[500px] flex flex-col gap-8 items-center justify-center">
+
+
+        <img
         src="/big-way-logo.png"
         alt="Big Way Hot Pot Logo"
-        className="w-10 mb-8"
+        className="w-10 md:hidden pointer-events-none"
       />
 
-      <div className="px-8 text-center w-full max-w-2xl flex flex-col items-center justify-center">
-        <h1 className="font-source-serif-pro font-medium uppercase text-[#FFC950] text-2xl mb-2">
-          {mbti}
-        </h1>
-        <h2 className="font-futura font-extrabold text-white text-5xl uppercase text-balance">
-          {brothByMBTI[mbti].broth}
-        </h2>
-      </div>
-
-      <img src={brothByMBTI[mbti].img} className="-mt-8 max-w-xl"></img>
-
-      <div className="max-w-[350px] w-full -mt-16 mb-8">
-        <h2 className="font-source-serif-pro text-[#F19C24] mb-2">
-          Description
-        </h2>
-        <p className="font-futura text-lg text-white">
-          {brothByMBTI[mbti].description}
-        </p>
-      </div>
-
-      <div className="max-w-[350px] w-full mb-12">
-        <h2 className="font-source-serif-pro text-[#F19C24] mb-2">
-          Personality Traits
-        </h2>
-        <div className="grid grid-cols-3 gap-4">
-          {brothByMBTI[mbti].traits.map((trait, idx) => (
-            <span key={idx} className="block font-futura text-lg text-white">
-              {trait}
-            </span>
-          ))}
+        <div className="">
+        <h2 className="font-source-serif-pro text-[#FFC950] text-xl text-center mb-0.5">You are an...</h2>
+        <h1 className="font-futura font-extrabold text-[#FFF1D3] text-4xl text-center">{mbti}</h1>
         </div>
-      </div>
+        
+        <div>
+        <h2 className="font-source-serif-pro text-[#FFC950] text-xl text-center mb-0.5">Your soup base is...</h2>
+        <h1 className="font-futura font-extrabold text-[#FFF1D3] text-4xl text-center text-balance">{broth.broth.toUpperCase()}</h1>
+        </div>
+        
+        <p className="font-futura text-[#FFF4E2] text-center text-md text-balance">Hold down on the image <span className="md:hidden">below</span> and save it to your
+          camera roll! Share it on your favourite social media and tag @bigwayhotpot.</p>
 
-      <div className="w-full flex flex-col gap-[20px] items-center justify-center mb-12">
-        <ButtonGold
-          id={"share_quiz"}
-          label={"Share My Result"}
-          onClick={() => {}}
-        />
-        <ButtonRed
+        
+        <div className="w-full justify-center hidden md:flex">  <ButtonRed
           id="take_quiz_again"
           label="Take the Quiz Again"
           onClick={() => router.push("/quiz")}
-        ></ButtonRed>
+        ></ButtonRed></div>
+      
       </div>
+
+     <div className="md:hidden w-full px-3 my-12">
+                <div className="separator h-0.5 mb-2 w-full"></div>
+                <div className="separator h-0.5 w-full"></div>
+              </div>
+              
+
+      <img
+        src={`/mbti/${mbti}.png`}
+        alt={mbti}
+        className={"object-contain md:h-[90%] max-w-[400px]"}
+      />
+
+        <div className="md:hidden w-full px-3 my-12">
+                <div className="separator h-0.5 mb-2 w-full"></div>
+                <div className="separator h-0.5 w-full"></div>
+              </div>
+
+                <div className="w-full flex justify-center md:hidden mb-4">  <ButtonRed
+          id="take_quiz_again2"
+          label="Take the Quiz Again"
+          onClick={() => router.push("/quiz")}
+        ></ButtonRed></div>
     </main>
   );
 }
