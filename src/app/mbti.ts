@@ -270,7 +270,7 @@ export const brothByMBTI: Record<string, BrothInfo> = {
   },
   ENTP: {
     img: "/broths/SchezuanGreenPepperBroth.png",
-    broth: "Schezuan Green Pepper Broth",
+    broth: "Szechuan Green Pepper Broth",
     description:
       "You are a fearless daredevil who loves pushing boundaries and trying new things. Your spicy side can show as you challenge the status quo and seek novelty.",
 
