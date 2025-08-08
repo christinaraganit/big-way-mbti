@@ -5,7 +5,7 @@ export default function AllSoups() {
     <main
       id="all-soups"
       className={
-        "flex flex-col items-center justify-center min-h-dvh min-w-dvw p-4 md:p-8 overflow-x-hidden"
+        "flex flex-col items-center justify-center w-dvw h-dvh min-h-dvh min-w-dvw p-4 md:p-8 overflow-x-hidden"
       }
     >
       <img

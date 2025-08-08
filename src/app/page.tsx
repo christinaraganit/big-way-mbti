@@ -3,6 +3,7 @@
 import ButtonRed from "@/app/button/button-red";
 import { useRouter } from "next/navigation";
 import ButtonGold from "./button/button-gold";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function Home() {
   return (
     <main
       id="home"
-      className="p-4 md:p-8 overflow-y-hidden overflow-x-hidden flex max-w-dvw max-h-dvh flex-col items-center justify-between bg-custom-red-gradient"
+      className="p-4 md:p-8 overflow-y-hidden overflow-x-hidden flex max-w-dvw max-h-dvh w-dvw h-dvh flex-col items-center justify-between bg-custom-red-gradient"
     >
       <img
         src="/border.svg"
@@ -58,9 +59,10 @@ export default function Home() {
         />
       </div>
 
-      <img
-        src="/hero-image-2x.png"
-        className="max-w-4xl md:max-w-6xl mt-10 md:mt-0 pointer-events-none"
+      <Image
+        src="/hero-image-1-5x.png"
+        alt="Big bowl of Big Way broth"
+        className="w-xl max-w-4xl md:w-6xl md:max-w-6xl mt-2 md:mt-0 pointer-events-none"
       />
     </main>
   );
