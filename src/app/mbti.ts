@@ -241,7 +241,7 @@ export const brothByMBTI: Record<string, BrothInfo> = {
   },
   ENFP: {
     img: "/broths/TomYumBroth.png",
-    broth: "Tom Yum Broth",
+    broth: "Tom Yum with Coconut Broth",
     description:
       "You are a free-spirited individual who’s always up for an adventure, whether that’s trying a new broth flavour or exploring an unfamiliar culture.",
 
@@ -330,7 +330,7 @@ export const brothByMBTI: Record<string, BrothInfo> = {
   },
   ESTP: {
     img: "/broths/SignatureMaLaTang.png",
-    broth: "Signature Ma La Tang",
+    broth: "Signature Spicy Broth (Malatang Style)",
     description:
       "You are a thrill-seeker who loves taking risks and thrives on adventure. Always ready to go with the flow, you’re an absolute classic just like this broth.",
 
