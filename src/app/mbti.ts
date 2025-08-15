@@ -302,7 +302,7 @@ export const brothByMBTI: Record<string, BrothInfo> = {
     img: "/broths/MushroomVeganBroth.png",
     broth: "Mushroom Vegan Broth",
     description:
-      "You are a curious adventurer who thrives on variety. You're always excited to try something new as your tastes change with the seasons.",
+      "The gentle nurturer. Kind-hearted and values harmony, always making sure others feel welcome.",
 
     traits: [
       "Energetic",
