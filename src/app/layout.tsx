@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     title: "Big Way Hot Pot MBTI Quiz",
     description:
       "Discover which of Big Way's delicious soup bases fits your personality and MBTI the best!",
-    images: [
-      {
-        url: "/opengraph-image.png", // hosted in /public
-        width: 1200,
-        height: 600,
-        alt: "Big Way Hot Pot MBTI Quiz",
-      },
-    ],
+    images: ["https://big-way-mbti.pages.dev/opengraph-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Big Way Hot Pot MBTI Quiz",
+    description:
+      "Discover which of Big Way's delicious soup bases fits your personality and MBTI the best!",
+    images: ["https://big-way-mbti.pages.dev/opengraph-image.png"],
   },
 };
 
