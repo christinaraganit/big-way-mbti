@@ -30,6 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          property="og:image"
+          content="https://big-way-mbti.pages.dev/opengraph-image.png"
+        />
+        <meta property="og:title" content="Big Way Hot Pot MBTI Quiz" />
+        <meta
+          property="og:description"
+          content="Discover which of Big Way's delicious soup bases fits your personality and MBTI the best!"
+        />
+      </head>
       <body>
         <QuizProvider>{children}</QuizProvider>
         <Analytics />
