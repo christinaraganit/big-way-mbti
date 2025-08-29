@@ -13,14 +13,7 @@ export const metadata: Metadata = {
     description:
       "Discover which of Big Way's delicious soup bases fits your personality and MBTI the best!",
     images: ["https://big-way-mbti.pages.dev/opengraph-image.png"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Big Way Hot Pot MBTI Quiz",
-    description:
-      "Discover which of Big Way's delicious soup bases fits your personality and MBTI the best!",
-    images: ["https://big-way-mbti.pages.dev/opengraph-image.png"],
-  },
+  }
 };
 
 export default function RootLayout({
