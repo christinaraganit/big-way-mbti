@@ -59,7 +59,7 @@ export default function Home() {
         />
       </div>
 
-      <Image
+      <img
         src="/hero-image-1-5x.png"
         alt="Big bowl of Big Way broth"
         className="w-xl max-w-4xl md:w-6xl md:max-w-6xl mt-2 md:mt-0 pointer-events-none"
